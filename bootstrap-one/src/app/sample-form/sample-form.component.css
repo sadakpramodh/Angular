@@ -1,0 +1,5 @@
+.form-contform-control .ng-invalid .ng-dirty .ng-touchedrol {
+    border : 2px;
+    background-color: blue;
+    border-color: blueviolet;
+}

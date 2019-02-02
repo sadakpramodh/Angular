@@ -1,0 +1,52 @@
+
+<form #f="ngForm" (ngSubmit)="submit(f.value)">
+  <div class="form-group">
+    <label for="name">Course Name</label>
+    <input 
+    required 
+    minlength="3" 
+    ngModel 
+    name="name" #name="ngModel" type="text" id="name"
+    class="form-control">
+    <div *ngIf="name.touched && name.invalid" class="alert alert-danger">
+      <div *ngIf="name.errors.required">Name field is required.</div>
+      <div *ngIf="name.errors.minlength">Name field should be at least {{ name.errors.minlength.requiredLength }} characters.</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="comment">Comment</label>
+    <textarea name="comment" #comment="ngModel" ngModel id="comment" class="form-control" required minlength="10" maxlength="20"></textarea>
+    <div *ngIf = "comment.touched && comment.invalid" class="alert alert danger">
+      <div *ngIf="comment.errors?.required">Comment required.</div>
+      <div *ngIf="comment.errors?.minlength">Comment should atleast {{ comment.errors.minlength.requiredLength }} characters.</div>
+      <div *ngIf="comment.errors?.maxlength">Comment should not morethan {{ comment.errors.maxlength.requiredLength }} characters.</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="sex">Sex</label>
+    <span *ngFor="let value of sex" >
+      <input type="radio" name="sex" [value]= "value.id" #sex="ngModel" ngModel id="sex"> {{ value.name }}
+    </span>
+  </div>
+
+  <div class="form-group">
+    <label for="category">Category</label>
+    <select name="category" #category="ngModel" ngModel id="category" class="form-control" required>
+      <option value="" name=""></option>
+      <option *ngFor="let c of categories" [value]="c.id">{{ c.name }}</option>
+    </select>
+    <div *ngIf="category.touched && category.invalid" class="alert alert-danger">
+      <div *ngIf="category.error?.required">Please select category.</div>
+    </div>
+  </div>
+  <div class="form-control">
+    <input type="checkbox" name="ismoneyback" id="ismoneyback" #ismoneyback="ngModel" ngModel > Do you want money back guarentee? 
+  </div>
+  <button name="submit" [disabled]="f.invalid" class="form-control btn btn-primary">submit</button>
+  <div>
+    <p>{{ f.value | json }}</p>
+ </div>
+  
+</form>

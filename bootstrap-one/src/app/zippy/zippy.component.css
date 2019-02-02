@@ -1,0 +1,17 @@
+
+.zippy-header {
+    padding :10px;
+    border : 2px;
+    background-color : grey;
+}
+.zippy-body {
+    padding : 20px;
+    border : 2px;
+
+}
+.zippy {
+    padding : 20px;
+    border : 2px;
+    border-block-start-color: black;
+    border-style: dashed;
+}

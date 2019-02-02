@@ -1,0 +1,26 @@
+
+<span [ngClass]="{
+    'fa-star' : true,
+    'fas' : isSelected,
+    'far' : !isSelected
+  }" (click)="OnClick()">
+</span>
+<div>
+    <button (click)="updateCourse(course)">Update Course</button>
+    <button (click)="addCourse()">Add Course</button>
+  <ul>
+      <li *ngFor = "let course of courses; index as i; " >{{ i }} {{ course.name }}<button (click)="deleteCourse(course)">Delete {{course.name}}</button></li>
+  </ul>
+  <p>Trackback</p>
+  <ul>
+      <li *ngFor = "let course of courses; index as i; trackBy: trackCourses" >{{ i }} {{ course.name }}</li>
+  </ul>
+  
+</div>
+<div>
+  <p>Safe traversal</p>
+  <span> {{  tasks.assigine?.name }}</span>
+  <span> {{  tasks.assigine.id }}</span>
+  <span> {{  tasks.assigine?.id }}</span>
+</div>
+

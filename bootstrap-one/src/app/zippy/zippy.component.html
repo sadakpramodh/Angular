@@ -1,0 +1,8 @@
+<div class="zippy">
+  <div class="zippy-header" (click)="toggle('shopping')">Shopping details</div>
+  <div class="zippy-body" *ngIf="isshoppingToggle" >No shopping details</div>
+</div>
+<div class="zippy">
+    <div class="zippy-header" (click)="toggle('market')">Market details</div>
+    <div class="zippy-body" *ngIf="ismarketToggle" >No Market details</div>
+  </div>

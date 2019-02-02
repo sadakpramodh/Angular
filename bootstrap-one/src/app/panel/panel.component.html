@@ -1,0 +1,41 @@
+<ng-container class="heading">heading</ng-container>
+    <div class="body"> 
+        <h2>Body</h2>
+        <div *ngIf="courses.length>0 ; then coursesList else noCourses"></div>
+        <ng-template #coursesList>List of courses</ng-template>
+        <ng-template #noCourses>No courses</ng-template>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav">
+                <li class="nav-item" [class.active]="viewMode=='map'"><a class="nav-link" (click)="viewMode='map'">Map </a></li>
+                <li class="nav-item" [class.active]="viewMode=='list'"><a class="nav-link" (click)="viewMode='list'">List </a></li>
+                </ul>
+            </div> 
+        </nav>
+        
+        <div [ngSwitch]="viewMode">
+            <div *ngSwitchCase="'map'">Map View Content</div>
+            <div *ngSwitchCase="'list'">List View Content</div>
+            <div *ngSwitchDefault>Otherwise</div>
+        </div>
+    </div>
+    <div class="footer">
+        <div [hidden]="courses.length>0">List of courses</div>
+        <div [hidden]="courses.length==0">No courses</div>
+        <input type="text" [appInputformat]="'uppercase'">
+    </div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+  <div class="card-header"><ng-content select=".heading"></ng-content></div>
+  <div class="card-body"><ng-content select=".body"></ng-content></div>
+  <div class="card-footer"><ng-content select=".footer"></ng-content></div>
+</div>
