@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { GithubFollowersService } from './github-followers.service';
 import { AppErrorHandler } from './services/app-error-handler';
 import { PostService } from './services/post.service';
@@ -5,6 +6,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +20,11 @@ import { FormArrayComponent } from './form-array/form-array.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { HttpJsonSampleComponent } from './http-json-sample/http-json-sample.component';
 import { GithubFollowersComponent } from './github-followers/github-followers.component';
+import { RoutingExampleComponent } from './routing-example/routing-example.component';
+import { HomeComponent } from './home/home.component';
+import { GithubProfileComponent } from './github-profile/github-profile.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -31,14 +38,27 @@ import { GithubFollowersComponent } from './github-followers/github-followers.co
     FormArrayComponent,
     ChangePasswordComponent,
     HttpJsonSampleComponent,
-    GithubFollowersComponent
+    GithubFollowersComponent,
+    RoutingExampleComponent,
+    HomeComponent,
+    GithubProfileComponent,
+    NotFoundComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot([
+      { path: '',component: HomeComponent },
+      { path: 'followers', component: GithubFollowersComponent },
+      { path: 'profile/:username', component: GithubProfileComponent },
+      { path: 'posts', component: HttpJsonSampleComponent},
+      { path: '**', component: NotFoundComponent}
+
+    ])
   ],
   providers: [
     PostService,

@@ -6,6 +6,6 @@
   </div>
   <div class="media-body">
     <h4 class="media-heading">{{follower.login }}</h4>
-    <a href="follower.html_url">{{ follower.html_url }}</a>
+    <a [routerLink]="['/profile',follower.id]">{{ follower.html_url }}</a>
   </div>
 </div>
