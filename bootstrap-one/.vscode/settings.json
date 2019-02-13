@@ -1,4 +1,6 @@
 {
     "appService.defaultWebAppToDeploy": "/subscriptions/8dcc511e-4670-49f7-9b7e-c95edd46a480/resourceGroups/element-27012019/providers/Microsoft.Web/sites/element",
-    "appService.deploySubpath": ""
+    "appService.deploySubpath": "",
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true
 }
