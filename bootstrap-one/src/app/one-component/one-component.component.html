@@ -6,7 +6,7 @@
   }" (click)="OnClick()">
 </span>
 <div>
-    <button (click)="updateCourse(course)">Update Course</button>
+    <button (click)="updateCourse()">Update Course</button>
     <button (click)="addCourse()">Add Course</button>
   <ul>
       <li *ngFor = "let course of courses; index as i; " >{{ i }} {{ course.name }}<button (click)="deleteCourse(course)">Delete {{course.name}}</button></li>
