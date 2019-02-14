@@ -5,8 +5,8 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { initializeApp } from 'firebase';
-import { environment } from 'src/environments/environment.prod';
+
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
