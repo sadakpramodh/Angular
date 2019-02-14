@@ -9,7 +9,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy:gh":"ng build --prod --base-href='https://sadakpramodh.github.io/angular/' && ngh -no-silent"
+    "deploy:firebase": "ng build –prod && firebase deploy",
+    "deploy:gh":"ng build --prod --base-href='https://sadakpramodh.github.io/Angular/deployment-demo' && ngh"
   },
   "private": true,
   "dependencies": {
